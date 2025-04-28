@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject quiz;
+    public GameObject settings;
 
    void Start() {
    
@@ -25,6 +26,13 @@ public class MainMenu : MonoBehaviour
    public void Quiz() {
 
    quiz.SetActive(true);
+
+
+   }
+
+   public void Settings() {
+
+   settings.SetActive(true);
 
 
    }
