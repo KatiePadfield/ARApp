@@ -1,26 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Interactions : MonoBehaviour
 {
 
-    bool annotationVisible = false; //current visibility of ship
-    public GameObject annotation; // annotation object
+    public GameObject EyeAnimationScript;
+
+    // public XRRayInteractor _rayInteractor;
+
+    // private bool isDragging = false;
+   
+
+
+
 
     public void selected()
     {
-
-        Debug.Log("show annotation");
-        //toggle visibility of the annotation
-        if (annotationVisible)
-        {
-            annotation.SetActive(false);
-            annotationVisible = false;
-        }else {
-            annotation.SetActive(true);
-            annotationVisible = true;
-        }
-
+        EyeAnimationScript.GetComponent<EyeAnimation>().enabled=true;
     }
+
+    //  public void OnSelectEntered()
+    // {
+    //     // Start dragging the object
+    //     isDragging = true;
+    // }
+
+    // public void OnSelectExited()
+    // {
+    //     // Stop dragging the object
+    //    isDragging = false;
+    // }
+
+    // public void Update(){
+    //     if(isDragging && _rayInteractor != null){
+    //         Ray ray = new Ray(_rayInteractor.transform.position,_rayInteractor.transform.forward);
+    //     }
+    // }
+
+
+    
 }
