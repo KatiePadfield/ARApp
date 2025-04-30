@@ -3,7 +3,52 @@ guid: 978d4dd7dffca5044a1308c06fb10a51
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CiliaryMuscles
+    second: {fileID: 2100000, guid: fe4365f0af73eda47b5941a9f7f83d11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EyeTexture
+    second: {fileID: 2100000, guid: 3a7e9079225b8ee438bba207c587c6eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: OpticNerveTexture
+    second: {fileID: 2100000, guid: 34ba4a69f04e4ca4da1fa597fd48b5b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Standard_Surface1
+    second: {fileID: 2100000, guid: 64f31d348d3056642bfea3902857c1d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SuspensoryLigamentTexture
+    second: {fileID: 2100000, guid: 78d50c5ec923c6442a0c80d831ef52d3, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eye-optic-nerve_lambert1_Height
+    second: {fileID: 2800000, guid: 5a0a8caf0ec4afa4dbea613ee0866936, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eye-optic-nerve_lambert1_Metallic
+    second: {fileID: 2800000, guid: 6cff460ea2af20a4a84d936367ecab9d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eye-optic-nerve_lambert1_Normal
+    second: {fileID: 2800000, guid: e9a9877f6bb0b2a46ac318aff8d1f656, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: eye-optic-nerve_lambert1_Roughness
+    second: {fileID: 2800000, guid: 4d206dba30826bc4490f860e749e5236, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -31,7 +76,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
