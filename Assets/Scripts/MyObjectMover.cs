@@ -9,10 +9,19 @@ using TMPro;
 public class MyObjectMover : MonoBehaviour
 {
 
-    public GameObject movableObject;
+    public List<GameObject> movableObjects;
+    public GameObject trackedObject;
+
     public ARRaycastManager raycastManager;
 
-    public TextMeshProUGUI log;
+
+    public LayerMask layerMaskPlane;
+    public LayerMask layerMaskObject;
+
+    void Start()
+    {
+        raycastManager = GameObject.Find("XR Origin").GetComponent<ARRaycastManager>();
+    }
 
 
     void Update()
@@ -25,11 +34,23 @@ public class MyObjectMover : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(touch.position);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMaskObject))
             {
-                log.text = ("Touched object: " + hit.collider.name);
-                movableObject.transform.position = hit.point;
+
+                trackedObject = hit.transform.gameObject;
+                //movableObject.transform.position = hit.point;
                 // Do something with the hit object
+            }
+
+            if (trackedObject != null)
+            {
+                RaycastHit hit2;
+
+                if (Physics.Raycast(ray, out hit2, Mathf.Infinity, layerMaskPlane))
+                {
+                    trackedObject.transform.position = hit2.point;
+                    // Do something with the hit object
+                }
             }
         }
 
