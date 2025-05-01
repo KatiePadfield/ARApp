@@ -9,7 +9,7 @@ public class ImageTracker : MonoBehaviour
     ARTrackedImageManager m_TrackedImageManager; 
     public GameObject eyePrefab; //Prefab you want to appear on marker image
 
-    public GameObject planeMap;
+//    public GameObject planeMap;
     
     void OnEnable() => m_TrackedImageManager.trackedImagesChanged += OnChanged;
 
@@ -25,9 +25,9 @@ public class ImageTracker : MonoBehaviour
         	// parent prefab to the newImage so that they stick together.
 			newObject.transform.SetParent(newImage.transform, false);
 
-            GameObject newObject2 = GameObject.Instantiate(planeMap);
-        	// parent prefab to the newImage so that they stick together.
-			newObject.transform.SetParent(newImage.transform, false);
+            // GameObject newObject2 = GameObject.Instantiate(planeMap);
+        	// // parent prefab to the newImage so that they stick together.
+			// newObject.transform.SetParent(newImage.transform, false);
         }
     }
 }

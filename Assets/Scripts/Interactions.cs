@@ -20,7 +20,7 @@ public class Interactions : MonoBehaviour
     {
         EyeAnimationScript.GetComponent<EyeAnimation>().enabled=true;
         GetComponent<MyObjectMover>().enabled=true;
-        transform.GetChild(1).GetComponent<BoxCollider>().enabled=false;
+        transform.GetChild(2).GetComponent<BoxCollider>().enabled=false;
     }
 
     //  public void OnSelectEntered()

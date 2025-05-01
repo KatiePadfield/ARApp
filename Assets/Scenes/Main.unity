@@ -3967,7 +3967,6 @@ MonoBehaviour:
   m_TrackedImageManager: {fileID: 1997580512}
   eyePrefab: {fileID: 9200138813862092430, guid: 581e32c75b2bd0e4ab2122afa4610365,
     type: 3}
-  planeMap: {fileID: 278072484340199403, guid: d5d8f3c6cff69af4fbf4b18dfbf9ee54, type: 3}
 --- !u!114 &1997580512
 MonoBehaviour:
   m_ObjectHideFlags: 0
