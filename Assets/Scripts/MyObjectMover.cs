@@ -11,65 +11,100 @@ public class MyObjectMover : MonoBehaviour
 
     public List<GameObject> movableObjects;
     public List<Vector3> startPositions;
+    public List<GameObject> movedObjects;
     public GameObject trackedObject;
 
     public ARRaycastManager raycastManager;
 
+    public GameObject test;
 
     public LayerMask layerMaskPlane;
     public LayerMask layerMaskObject;
 
+
     void Start()
     {
         raycastManager = GameObject.Find("XR Origin").GetComponent<ARRaycastManager>();
-
     }
 
 
     void Update()
     {
-
+        Touch touch = Input.GetTouch(0);
+        Ray ray = Camera.main.ScreenPointToRay(touch.position);
         if (Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
-
-            Ray ray = Camera.main.ScreenPointToRay(touch.position);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMaskObject))
+            switch (touch.phase)
             {
+                case TouchPhase.Began:
+                    OnTouchDown(touch, ray);
+                    break;
+
+                case TouchPhase.Ended:
+                    OnTouchUp(touch, ray);
+                    break;
+            }
 
 
+        }
 
-                trackedObject = hit.transform.gameObject;
-                int i = 0;
-                foreach (GameObject _object in movableObjects)
+        if (trackedObject != null)
+        {
+            RaycastHit hit2;
+
+            if (Physics.Raycast(ray, out hit2, Mathf.Infinity, layerMaskPlane))
+            {
+                trackedObject.transform.position = hit2.point;
+                // Do something with the hit object
+            }
+        }
+
+    }
+
+    void OnTouchDown(Touch touch, Ray ray)
+    {
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMaskObject))
+        {
+            trackedObject = hit.transform.gameObject;
+            int i = 0;
+            foreach (GameObject _object in movableObjects)
+            {
+                if (_object == trackedObject)
                 {
-                    if (_object == trackedObject)
+                    Vector3 pos = startPositions[i];
+
+                    if (movedObjects.Contains(trackedObject))
                     {
-                        Vector3 pos = startPositions[i];
-                        if(trackedObject.transform.localPosition != pos)
+                        if (trackedObject.transform.localPosition != pos)
                         {
                             trackedObject.transform.localPosition = pos;
+                            movedObjects.Remove(trackedObject);
+                            trackedObject = null;
                         }
                         return;
                     }
-                    i++;
                 }
-                //movableObject.transform.position = hit.point;
-                // Do something with the hit object
+                i++;
             }
 
-            if (trackedObject != null)
-            {
-                RaycastHit hit2;
+        }
 
-                if (Physics.Raycast(ray, out hit2, Mathf.Infinity, layerMaskPlane))
-                {
-                    trackedObject.transform.position = hit2.point;
-                    // Do something with the hit object
-                }
-            }
+
+
+
+
+    }
+
+    void OnTouchUp(Touch touch, Ray ray)
+    {
+
+        if(trackedObject != null)
+        {
+        movedObjects.Add(trackedObject);
+        trackedObject = null;
         }
 
     }

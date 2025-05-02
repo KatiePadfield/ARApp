@@ -4234,8 +4234,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movableObjects:
   - {fileID: 0}
+  startPositions: []
   trackedObject: {fileID: 0}
   raycastManager: {fileID: 1997580513}
+  test: {fileID: 0}
   layerMaskPlane:
     serializedVersion: 2
     m_Bits: 0

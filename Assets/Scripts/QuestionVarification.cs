@@ -27,19 +27,39 @@ public class QuestionVarification : MonoBehaviour
             case 1: 
             if(input.text.ToLower() == opticNerveAnswer){
                 PopUpText("Conrats! you are right this is the Optic Nerve");
-                opticNerveObject.SetActive(false);
                 correctQuestions++;
             }else{
                 PopUpText("NOOOOOOOOOOOO");
-                opticNerveObject.SetActive(false);
-
             }
+            opticNerveObject.SetActive(false);
             break;
             case 2:
+              if(input.text.ToLower() == lensAnswer){
+                PopUpText("Conrats! you are right this is the Lens");
+                correctQuestions++;
+            }else{
+                PopUpText("NOOOOOOOOOOOO");
+            }
+            lensObject.SetActive(false);
             break;
             case 3:
+            if(input.text.ToLower() == suspensoryLigamentAnswer){
+                PopUpText("Conrats! you are right these are the suspensory ligaments");
+                correctQuestions++;
+            }else{
+                PopUpText("NOOOOOOOOOOOO");
+            }
+           suspensoryLigamentObject.SetActive(false);
             break;
             case 4:
+             if(input.text.ToLower() == ciliaryBodyAnswer){
+                PopUpText("Conrats! you are right this is the ciliary body");
+                correctQuestions++;
+            }else{
+                PopUpText("NOOOOOOOOOOOO");
+            }
+           ciliarybodyObject.SetActive(false);
+            
             break;
             
         }
