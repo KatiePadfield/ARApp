@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 2583238159750202907}
   - component: {fileID: 4090983365048291608}
   - component: {fileID: 6410372966069387458}
+  - component: {fileID: 5673840555103564561}
   m_Layer: 0
   m_Name: EyeHalf_R
   m_TagString: Untagged
@@ -698,6 +699,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5673840555103564561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359856254433943763}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec7a78a806381d42acb81776195b9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPosAddition: {x: 0.111, y: 0, z: 0}
+  speed: 1
+  endPoint: 1
 --- !u!1 &1695203146831106064
 GameObject:
   m_ObjectHideFlags: 0

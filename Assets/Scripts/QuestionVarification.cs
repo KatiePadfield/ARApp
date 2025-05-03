@@ -8,7 +8,7 @@ public class QuestionVarification : MonoBehaviour
 {
 
     public GameObject popUpPannel;
-    public GameObject newPannel;
+    public GameObject endPannel;
     public TMP_InputField input;
     public GameObject opticNerveObject;
     public string opticNerveAnswer = "optic nerve";
@@ -71,7 +71,7 @@ public class QuestionVarification : MonoBehaviour
             
                 }
                 lensObject.SetActive(false);
-                break;
+                break; 
             case 3:
                 if (input.text.ToLower() == suspensoryLigamentAnswer)
                 {
@@ -139,8 +139,8 @@ public class QuestionVarification : MonoBehaviour
                 ciliarybodyObject.SetActive(true);
                 break;
             case 5:
-                //show final text here
-
+                 
+                endPannel.SetActive(true);
                 break;
 
         }
