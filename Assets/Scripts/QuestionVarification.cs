@@ -8,6 +8,7 @@ public class QuestionVarification : MonoBehaviour
 {
 
     public GameObject popUpPannel;
+    public GameObject newPannel;
     public TMP_InputField input;
     public GameObject opticNerveObject;
     public string opticNerveAnswer = "optic nerve";
@@ -22,16 +23,23 @@ public class QuestionVarification : MonoBehaviour
 
     private int correctQuestions = 0;
 
+    public Button opticNerveCorrect;
+    public Button opticNerveWrong;
+
     public void Checker(){
         switch(questionNo){
             case 1: 
             if(input.text.ToLower() == opticNerveAnswer){
                 PopUpText("Conrats! you are right this is the Optic Nerve");
+                opticNerveCorrect.gameObject.SetActive(true);
                 correctQuestions++;
             }else{
                 PopUpText("NOOOOOOOOOOOO");
+                opticNerveWrong.gameObject.SetActive(true);
             }
             opticNerveObject.SetActive(false);
+            opticNerveCorrect.gameObject.SetActive(false);
+            opticNerveWrong.gameObject.SetActive(false);
             break;
             case 2:
               if(input.text.ToLower() == lensAnswer){
@@ -94,6 +102,7 @@ public class QuestionVarification : MonoBehaviour
             break;
             case 5:
             //show final text here
+
             break;
             
         }
