@@ -35,7 +35,7 @@ public class QuestionVarification : MonoBehaviour
     public AudioClip suspensoryLigamentSoundWrong;
     public AudioClip ciliaryBodySoundWrong;
 
-    private AudioClip currentPopupClip; 
+    private AudioClip currentPopupClip;
 
 
 
@@ -47,14 +47,13 @@ public class QuestionVarification : MonoBehaviour
             case 1:
                 if (input.text.ToLower() == opticNerveAnswer)
                 {
-                    PopUpText("Conrats! you are right this is the Optic Nerve", opticNerveSound);
-                    //audioSource.PlayOneShot(opticNerveSound);
+                    PopUpText("Congrats! You are right this is the Optic Nerve. The Optic Nerve caries the visual message to the brain so we can see!  The optic nerve actually creates a blind spot on the retina, you can see find yours through the activity on the next page.", opticNerveSound);
                     correctQuestions++;
                 }
                 else
                 {
-                    PopUpText("NOOOOOOOOOOOO", opticNerveSoundWrong);
-                    //audioSource.PlayOneShot(opticNerveSoundWrong);
+                    PopUpText("Not quite right,this is Optic Nerve. The Optic Nerve caries the visual message to the brain so we can see!  The optic nerve actually creates a blind spot on the retina, you can see find yours through the activity on the next page.", opticNerveSoundWrong);
+                
                 }
                 opticNerveObject.SetActive(false);
 
@@ -62,42 +61,39 @@ public class QuestionVarification : MonoBehaviour
             case 2:
                 if (input.text.ToLower() == lensAnswer)
                 {
-                    PopUpText("Conrats! you are right this is the Lens", lensSound);
-                   // audioSource.PlayOneShot(lensSound);
+                    PopUpText("Congrats! This is the lens. The lens is how your eye focuses light onto the retina. It can make itself flatter or rounder depending on how far away an object is.", lensSound);
+
                     correctQuestions++;
                 }
                 else
                 {
-                    PopUpText("NOOOOOOOOOOOO", lensSoundWrong);
-                   // audioSource.PlayOneShot(lensSoundWrong);
+                    PopUpText("Not quite right, this is the lens. The lens is how your eye focuses light onto the retina. It can make itself flatter or rounder depending on how far away an object is.", lensSoundWrong);
+            
                 }
                 lensObject.SetActive(false);
                 break;
             case 3:
                 if (input.text.ToLower() == suspensoryLigamentAnswer)
                 {
-                    PopUpText("Conrats! you are right these are the suspensory ligaments", suspensoryLigamentSound);
-                   // audioSource.PlayOneShot(suspensoryLigamentSound);
+                    PopUpText("Congrats! you are right this is the Suspensory Ligaments. The Suspensory Ligaments connect the Lens to the Ciliary Body.  It keeps the Lens in place and  enables it to change shape.", suspensoryLigamentSound);
                     correctQuestions++;
                 }
                 else
                 {
-                    PopUpText("NOOOOOOOOOOOO", suspensoryLigamentSoundWrong);
-                   // audioSource.PlayOneShot(suspensoryLigamentSoundWrong);
+                    PopUpText("Not quite right, this is the Suspensory Ligaments. The Suspensory Ligaments connect the Lens to the Ciliary Body.  It keeps the Lens in place and  enables it to change shape.", suspensoryLigamentSoundWrong);
+    
                 }
                 suspensoryLigamentObject.SetActive(false);
                 break;
             case 4:
                 if (input.text.ToLower() == ciliaryBodyAnswer)
                 {
-                    PopUpText("Conrats! you are right this is the ciliary body", ciliaryBodySound);
-                   // audioSource.PlayOneShot(ciliaryBodySound);
+                    PopUpText("Congrats! This is the Ciliary body. The ciliary body helps the lens change shape so the eye can focus.", ciliaryBodySound);
                     correctQuestions++;
                 }
                 else
                 {
-                    PopUpText("NOOOOOOOOOOOO", ciliaryBodySoundWrong);
-                   // audioSource.PlayOneShot(ciliaryBodySoundWrong);
+                    PopUpText("Not quite right, This is the Ciliary body. The ciliary body helps the lens change shape so the eye can focus.", ciliaryBodySoundWrong);
                 }
                 ciliarybodyObject.SetActive(false);
 
@@ -128,6 +124,8 @@ public class QuestionVarification : MonoBehaviour
         questionNo++;
         popUpPannel.SetActive(false);
 
+        input.text = "";
+
         switch (questionNo)
         {
 
@@ -148,13 +146,13 @@ public class QuestionVarification : MonoBehaviour
         }
     }
 
-    public void PlayPopupAudio(){
-    if (currentPopupClip != null){
-        audioSource.PlayOneShot(currentPopupClip);
+    public void PlayPopupAudio()
+    {
+        if (currentPopupClip != null)
+        {
+            audioSource.PlayOneShot(currentPopupClip);
+        }
     }
-}
-
-
 
 }
 
