@@ -23,91 +23,139 @@ public class QuestionVarification : MonoBehaviour
 
     private int correctQuestions = 0;
 
-    public Button opticNerveCorrect;
-    public Button opticNerveWrong;
+    public AudioSource audioSource;
+    public Button popupAudioButton;
 
-    public void Checker(){
-        switch(questionNo){
-            case 1: 
-            if(input.text.ToLower() == opticNerveAnswer){
-                PopUpText("Conrats! you are right this is the Optic Nerve");
-                opticNerveCorrect.gameObject.SetActive(true);
-                correctQuestions++;
-            }else{
-                PopUpText("NOOOOOOOOOOOO");
-                opticNerveWrong.gameObject.SetActive(true);
-            }
-            opticNerveObject.SetActive(false);
-            opticNerveCorrect.gameObject.SetActive(false);
-            opticNerveWrong.gameObject.SetActive(false);
-            break;
+    public AudioClip opticNerveSound;
+    public AudioClip lensSound;
+    public AudioClip suspensoryLigamentSound;
+    public AudioClip ciliaryBodySound;
+    public AudioClip opticNerveSoundWrong;
+    public AudioClip lensSoundWrong;
+    public AudioClip suspensoryLigamentSoundWrong;
+    public AudioClip ciliaryBodySoundWrong;
+
+    private AudioClip currentPopupClip; 
+
+
+
+
+    public void Checker()
+    {
+        switch (questionNo)
+        {
+            case 1:
+                if (input.text.ToLower() == opticNerveAnswer)
+                {
+                    PopUpText("Conrats! you are right this is the Optic Nerve", opticNerveSound);
+                    //audioSource.PlayOneShot(opticNerveSound);
+                    correctQuestions++;
+                }
+                else
+                {
+                    PopUpText("NOOOOOOOOOOOO", opticNerveSoundWrong);
+                    //audioSource.PlayOneShot(opticNerveSoundWrong);
+                }
+                opticNerveObject.SetActive(false);
+
+                break;
             case 2:
-              if(input.text.ToLower() == lensAnswer){
-                PopUpText("Conrats! you are right this is the Lens");
-                correctQuestions++;
-            }else{
-                PopUpText("NOOOOOOOOOOOO");
-            }
-            lensObject.SetActive(false);
-            break;
+                if (input.text.ToLower() == lensAnswer)
+                {
+                    PopUpText("Conrats! you are right this is the Lens", lensSound);
+                   // audioSource.PlayOneShot(lensSound);
+                    correctQuestions++;
+                }
+                else
+                {
+                    PopUpText("NOOOOOOOOOOOO", lensSoundWrong);
+                   // audioSource.PlayOneShot(lensSoundWrong);
+                }
+                lensObject.SetActive(false);
+                break;
             case 3:
-            if(input.text.ToLower() == suspensoryLigamentAnswer){
-                PopUpText("Conrats! you are right these are the suspensory ligaments");
-                correctQuestions++;
-            }else{
-                PopUpText("NOOOOOOOOOOOO");
-            }
-           suspensoryLigamentObject.SetActive(false);
-            break;
+                if (input.text.ToLower() == suspensoryLigamentAnswer)
+                {
+                    PopUpText("Conrats! you are right these are the suspensory ligaments", suspensoryLigamentSound);
+                   // audioSource.PlayOneShot(suspensoryLigamentSound);
+                    correctQuestions++;
+                }
+                else
+                {
+                    PopUpText("NOOOOOOOOOOOO", suspensoryLigamentSoundWrong);
+                   // audioSource.PlayOneShot(suspensoryLigamentSoundWrong);
+                }
+                suspensoryLigamentObject.SetActive(false);
+                break;
             case 4:
-             if(input.text.ToLower() == ciliaryBodyAnswer){
-                PopUpText("Conrats! you are right this is the ciliary body");
-                correctQuestions++;
-            }else{
-                PopUpText("NOOOOOOOOOOOO");
-            }
-           ciliarybodyObject.SetActive(false);
-            
-            break;
-            
+                if (input.text.ToLower() == ciliaryBodyAnswer)
+                {
+                    PopUpText("Conrats! you are right this is the ciliary body", ciliaryBodySound);
+                   // audioSource.PlayOneShot(ciliaryBodySound);
+                    correctQuestions++;
+                }
+                else
+                {
+                    PopUpText("NOOOOOOOOOOOO", ciliaryBodySoundWrong);
+                   // audioSource.PlayOneShot(ciliaryBodySoundWrong);
+                }
+                ciliarybodyObject.SetActive(false);
+
+                break;
+
         }
 
-      
+
     }
-     
 
-       public void PopUpText(string popUpText){
-            
-            popUpPannel.SetActive(true);
 
-            popUpPannel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = popUpText;
-            
+    public void PopUpText(string popUpText, AudioClip soundClip)
+    {
 
-        }
+        popUpPannel.SetActive(true);
 
-        public void QuestionNumber(){
-            questionNo++;
-            popUpPannel.SetActive(false);
+        popUpPannel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = popUpText;
 
-              switch(questionNo){
+        currentPopupClip = soundClip; // store the correct sound
+
+        popupAudioButton.onClick.RemoveAllListeners(); // remove old listeners
+        popupAudioButton.onClick.AddListener(PlayPopupAudio); // assign the listener
+
+    }
+
+    public void QuestionNumber()
+    {
+        questionNo++;
+        popUpPannel.SetActive(false);
+
+        switch (questionNo)
+        {
 
             case 2:
-            lensObject.SetActive(true);
-            break;
+                lensObject.SetActive(true);
+                break;
             case 3:
-            suspensoryLigamentObject.SetActive(true);
-            break;
+                suspensoryLigamentObject.SetActive(true);
+                break;
             case 4:
-            ciliarybodyObject.SetActive(true);
-            break;
+                ciliarybodyObject.SetActive(true);
+                break;
             case 5:
-            //show final text here
+                //show final text here
 
-            break;
-            
-        }
-        }
+                break;
 
-        
+        }
+    }
+
+    public void PlayPopupAudio(){
+    if (currentPopupClip != null){
+        audioSource.PlayOneShot(currentPopupClip);
+    }
+}
+
+
 
 }
+
+
